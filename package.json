@@ -4,15 +4,15 @@
   "description": "",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pre-build"
+      "pre-commit": "npm run build:check"
     }
   },
   "scripts": {
     "test": "echo \"WARN: no test specified\" && exit 0",
     "start": "npm-run-all --parallel prettier:watch storybook",
     "storybook": "start-storybook -p 6006",
-    "pre-build": "npm-run-all lint:check prettier:check",
-    "build": "npm-run-all pre-build lerna-build build-storybook",
+    "build:check": "npm-run-all lint:check prettier:check",
+    "build": "npm-run-all build:check lerna-build build-storybook",
     "build-storybook": "build-storybook",
     "lerna-build": "lerna run build",
     "lint:check": "tslint 'packages/**/*.{ts,tsx}'",
