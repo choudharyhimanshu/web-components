@@ -4,18 +4,18 @@
   "description": "",
   "husky": {
     "hooks": {
-      "pre-commit": "prettier:check"
+      "pre-commit": "npm run pre-build"
     }
   },
   "scripts": {
-    "start": "npm-run-all --parallel prettier:watch storybook",
     "test": "echo \"WARN: no test specified\" && exit 0",
+    "start": "npm-run-all --parallel prettier:watch storybook",
     "storybook": "start-storybook -p 6006",
-    "pre-build": "npm-run-all lint prettier:check",
+    "pre-build": "npm-run-all lint:check prettier:check",
     "build": "npm-run-all pre-build lerna-build build-storybook",
     "build-storybook": "build-storybook",
-    "lint": "tslint 'packages/**/*.{ts,tsx}'",
     "lerna-build": "lerna run build",
+    "lint:check": "tslint 'packages/**/*.{ts,tsx}'",
     "prettier:check": "prettier --check packages/**/*.{ts,tsx,json}",
     "prettier:write": "prettier --write packages/**/*.{ts,tsx,json}",
     "prettier:watch": "onchange 'packages/**/*.{ts,tsx,json}' -- prettier --write {{changed}}"
