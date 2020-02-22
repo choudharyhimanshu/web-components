@@ -4,11 +4,13 @@ jobs:
     machine: true
     steps:
       - checkout
+      - run: npm install
       - run: npm run build
   test:
     machine: true
     steps:
       - checkout
+      - run: npm install
       - run: npm run test
 workflows:
   version: 2
