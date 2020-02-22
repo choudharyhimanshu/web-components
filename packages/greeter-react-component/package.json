@@ -10,6 +10,9 @@
     "directories": {
         "lib": "dist"
     },
+    "publishConfig": {
+        "access": "public"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/choudharyhimanshu/web-components.git"
@@ -24,5 +27,6 @@
     "peerDependencies": {
         "react": "^16.12.0",
         "react-dom": "^16.12.0"
-    }
+    },
+    "gitHead": "f2d15336d6820fe1f78534a22608b09644c190eb"
 }
