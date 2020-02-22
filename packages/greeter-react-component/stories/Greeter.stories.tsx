@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Greeter from '../src/Greeter';
-import {withKnobs, text} from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 
 export default {
     title: 'Greeter',

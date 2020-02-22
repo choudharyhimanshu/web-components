@@ -1,10 +1,8 @@
 {
-    "extends": ["tslint:latest"],
+    "extends": ["tslint-plugin-prettier", "tslint-config-prettier"],
     "rules": {
-        "indent": {
-            "options": ["spaces", 4]
-        },
-        "quotemark": [true, "single", "jsx-single"],
-        "no-implicit-dependencies": false
+        "prettier": true,
+        "trailing-comma": false,
+        "semicolon": false
     }
 }
