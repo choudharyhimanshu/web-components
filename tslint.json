@@ -1,0 +1,10 @@
+{
+    "extends": ["tslint:latest"],
+    "rules": {
+        "indent": {
+            "options": ["spaces", 4]
+        },
+        "quotemark": [true, "single", "jsx-single"],
+        "no-implicit-dependencies": false
+    }
+}

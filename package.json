@@ -4,7 +4,10 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook -p 6006",
+    "build": "lerna run build",
+    "build-storybook": "build-storybook",
+    "lint": "tslint 'packages/**/*.{ts,tsx}'"
   },
   "repository": {
     "type": "git",
@@ -17,12 +20,21 @@
   },
   "homepage": "https://github.com/choudharyhimanshu/web-components#readme",
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@storybook/addon-actions": "^5.3.13",
+    "@storybook/addon-knobs": "^5.3.13",
+    "@storybook/addon-links": "^5.3.13",
+    "@storybook/addons": "^5.3.13",
     "@storybook/react": "^5.3.13",
+    "@types/node": "^13.7.1",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
     "babel-loader": "^8.0.6",
-    "lerna": "^3.20.2"
-  },
-  "dependencies": {
+    "babel-preset-react-app": "^9.1.1",
+    "lerna": "^3.20.2",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "tslint": "^6.0.0",
+    "typescript": "^3.7.5"
   }
 }

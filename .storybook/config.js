@@ -1,7 +1,3 @@
-import { configure } from '@storybook/react'
+import { configure } from '@storybook/react';
 
-const req = require.context('../packages', true, /\.story\.(ts|tsx)$/)
-
-configure(() => {
-  req.keys().forEach(filename => req(filename))
-}, module);
+configure(require.context('../packages', true, /\.stories\.(js|jsx|ts|tsx)$/), module);
