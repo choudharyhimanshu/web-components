@@ -11,7 +11,7 @@
     "test": "echo \"WARN: no test specified\" && exit 0",
     "start": "npm-run-all --parallel prettier:watch storybook:start",
     "build:check": "npm-run-all lint:check prettier:check",
-    "build": "npm-run-all build:check lerna:build storybook:build",
+    "build": "npm-run-all build:check lerna:build",
     "publish": "npm-run-all build lerna:publish",
     "storybook:start": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
