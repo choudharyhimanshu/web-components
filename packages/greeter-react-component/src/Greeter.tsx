@@ -5,7 +5,7 @@ export interface IGreeterProps {
 }
 
 const Greeter = (props: IGreeterProps) => {
-    return <h2>Welcome, {props.name ? props.name : 'User'}!</h2>;
+    return <h1>Welcome, {props.name ? props.name : 'User'}!</h1>;
 };
 
 export default Greeter;
