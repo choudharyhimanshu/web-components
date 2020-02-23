@@ -629,3 +629,4 @@ dist/
 *.code-workspace
 
 storybook-static
+.firebase
