@@ -1,0 +1,38 @@
+{
+    "name": "@muchhadd/file-preview-react-component",
+    "version": "1.0.0",
+    "description": "A react component to preview a file/blob with support for various formats.",
+    "keywords": [
+        "file",
+        "preview",
+        "react",
+        "blob",
+        "file-preview"
+    ],
+    "author": "Himanshu Choudhary <himanshuchoudhary@live.com>",
+    "homepage": "https://github.com/choudharyhimanshu/web-components/tree/master/packages/file-preview-react-component#readme",
+    "license": "ISC",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/choudharyhimanshu/web-components.git"
+    },
+    "scripts": {
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "build": "tsc -p tsconfig.json"
+    },
+    "bugs": {
+        "url": "https://github.com/choudharyhimanshu/web-components/issues"
+    },
+    "peerDependencies": {
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0"
+    }
+}
