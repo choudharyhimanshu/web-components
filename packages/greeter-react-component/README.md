@@ -1,11 +1,20 @@
 # `greeter-react-component`
 
-> TODO: description
+A `Hello, world!` kinda welcome component. :P
+
+## Installation
+
+```bash
+npm i @muchhadd/greeter-react-component --save
+```
 
 ## Usage
 
-```
-const greeterReactComponent = require('greeter-react-component');
+```jsx
+import {Greeter} from 'greeter-react-component';
 
-// TODO: DEMONSTRATE API
+
+
+<Greeter name={'John Wick'} />
+
 ```
