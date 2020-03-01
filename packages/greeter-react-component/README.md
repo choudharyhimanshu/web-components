@@ -1,4 +1,4 @@
-# `greeter-react-component`
+# greeter-react-component
 
 A `Hello, world!` kinda welcome component. :P
 
