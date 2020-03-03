@@ -30,9 +30,20 @@ export default {
     decorators: [withKnobs]
 };
 
-export const withFile = () => (
+export const forImages = () => (
     <FilePreview
-        file={files('file', '*', []).map(dataURI => dataURItoBlob(dataURI))[0]}
-        fileName={'test file'}
+        file={
+            files('file', 'jpg', []).map(dataURI => dataURItoBlob(dataURI))[0]
+        }
+        format="jpg"
+    />
+);
+
+export const forPDF = () => (
+    <FilePreview
+        file={
+            files('file', 'pdf', []).map(dataURI => dataURItoBlob(dataURI))[0]
+        }
+        format="pdf"
     />
 );
