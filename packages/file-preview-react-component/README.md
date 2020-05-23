@@ -5,17 +5,17 @@ A react component to preview a file/blob with support for various formats.
 ## Installation
 
 ```bash
-npm i @muchhadd/file-preview-react-component --save
+npm i @muchhadd/react-file-preview --save
 ```
 
 ## Usage
 
 ```jsx
-import {FilePreview} from '@muchhadd/file-preview-react-component';
+import {FilePreview} from '@muchhadd/react-file-preview';
 
 <FilePreview
     file={new Blob(['test'], { type: 'text/plain' })}
-    fileName={'test file.txt'}
+    fileName={'test-file.txt'}
 />
 
 ```
