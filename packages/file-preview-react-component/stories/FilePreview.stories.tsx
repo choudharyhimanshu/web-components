@@ -30,20 +30,35 @@ export default {
     decorators: [withKnobs]
 };
 
-export const forImages = () => (
-    <FilePreview
-        file={
-            files('file', 'jpg', []).map(dataURI => dataURItoBlob(dataURI))[0]
-        }
-        format="jpg"
-    />
-);
+export const forImages = () => {
+    const fileURI = files('file', 'jpg', [])[0];
+    return fileURI ? (
+        <FilePreview
+            file={dataURItoBlob(fileURI)}
+            filename="foobar.pdf"
+            format="jpg"
+        />
+    ) : null;
+};
 
-export const forPDF = () => (
-    <FilePreview
-        file={
-            files('file', 'pdf', []).map(dataURI => dataURItoBlob(dataURI))[0]
-        }
-        format="pdf"
-    />
-);
+export const forPDF = () => {
+    const fileURI = files('file', 'pdf', [])[0];
+    return fileURI ? (
+        <FilePreview
+            file={dataURItoBlob(fileURI)}
+            filename="foobar.pdf"
+            format="pdf"
+        />
+    ) : null;
+};
+
+export const forUnsupported = () => {
+    const fileURI = files('file', 'pdf', [])[0];
+    return fileURI ? (
+        <FilePreview
+            file={dataURItoBlob(fileURI)}
+            filename="foobar.pdf"
+            format="xxx"
+        />
+    ) : null;
+};

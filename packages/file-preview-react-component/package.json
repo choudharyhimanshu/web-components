@@ -1,5 +1,5 @@
 {
-    "name": "@muchhadd/file-preview-react-component",
+    "name": "@muchhadd/react-file-preview",
     "version": "1.0.0",
     "description": "A react component to preview a file/blob with support for various formats.",
     "keywords": [

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import './style.css';
 import ImagePreview from './ImagePreview';
+import PdfPreview from './PdfPreview';
 
 const getFormatFromFilename = (fileName: string | undefined): string => {
     const fileNameSplit = fileName?.split('.');
@@ -11,48 +11,53 @@ const getFormatFromFilename = (fileName: string | undefined): string => {
 };
 
 export interface IFilePreviewProps {
-    file: Blob | undefined;
-    fileName?: string;
+    file: Blob;
+    filename: string;
     format?: string;
+    className?: string;
 }
 
 const FilePreview = (props: IFilePreviewProps) => {
-    const { file, fileName, format } = props;
+    const { file, filename, format, className } = props;
 
-    if (file) {
-        const blobURL: string = URL.createObjectURL(file);
-        const previewFormat: string = format
-            ? format
-            : getFormatFromFilename(fileName);
+    const objectURL: string = React.useMemo(() => URL.createObjectURL(file), [
+        file
+    ]);
+    const previewFormat: string = React.useMemo(
+        () => format || getFormatFromFilename(filename),
+        [format, filename]
+    );
 
-        switch (previewFormat) {
-            case 'png':
-            case 'jpg':
-            case 'gif':
-                return <ImagePreview src={blobURL} />;
-            default:
-                return (
-                    <div className="text-center pt-5 pb-5">
-                        <h1>
-                            <i className="fas fa-exclamation-circle" />
-                        </h1>
-                        <h5>File format is not supported for a preview</h5>
-                        <h6>Please dowload file to open</h6>
-                        <a download={fileName || 'download'} href={blobURL}>
-                            <button>
-                                <i className="fas fa-download mr-1" /> Download
-                            </button>
-                        </a>
-                    </div>
-                );
-        }
-    } else {
-        return (
-            <h2 className="text-center pt-2 pb-2">
-                <i className="fas fa-exclamation mr-1" />
-                Please select a file to preview
-            </h2>
-        );
+    switch (previewFormat) {
+        case 'png':
+        case 'jpg':
+        case 'jpeg':
+        case 'gif':
+            return <ImagePreview className={className} src={objectURL} />;
+        case 'pdf':
+            return <PdfPreview className={className} src={objectURL} />;
+        default:
+            return (
+                <div
+                    className={className}
+                    style={{ textAlign: 'center', padding: '20px 0' }}
+                >
+                    <h1>
+                        <i className="fas fa-exclamation-circle" />
+                    </h1>
+                    <h5>File format is not supported for a preview</h5>
+                    <h6>Please dowload the file to open</h6>
+                    <a download={filename} href={objectURL}>
+                        <button>
+                            <i
+                                className="fas fa-download"
+                                style={{ marginRight: 10 }}
+                            />
+                            Download
+                        </button>
+                    </a>
+                </div>
+            );
     }
 };
 
