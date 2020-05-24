@@ -19,7 +19,13 @@ export interface IFilePreviewProps {
 }
 
 const FilePreview = (props: IFilePreviewProps) => {
-    const { file, filename, format, className } = props;
+    const {
+        file,
+        filename,
+        format,
+        className,
+        downloadButtonClassName
+    } = props;
 
     const objectURL: string = React.useMemo(() => URL.createObjectURL(file), [
         file
@@ -46,14 +52,14 @@ const FilePreview = (props: IFilePreviewProps) => {
                     <h1>
                         <i className="fas fa-exclamation-circle" />
                     </h1>
-                    <h5 style={{ marginBottom: 20 }}>
+                    <h5 style={{ marginBottom: '20px' }}>
                         File format is not supported for a preview
                     </h5>
-                    <h6 style={{ marginBottom: 20 }}>
+                    <h6 style={{ marginBottom: '20px' }}>
                         Please dowload the file to open
                     </h6>
                     <a download={filename} href={objectURL}>
-                        <button className="downloadButtonClassName">
+                        <button className={downloadButtonClassName}>
                             <i
                                 className="fas fa-download"
                                 style={{ marginRight: 20 }}
