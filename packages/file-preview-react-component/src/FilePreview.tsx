@@ -15,6 +15,7 @@ export interface IFilePreviewProps {
     filename: string;
     format?: string;
     className?: string;
+    downloadButtonClassName?: string;
 }
 
 const FilePreview = (props: IFilePreviewProps) => {
@@ -45,13 +46,17 @@ const FilePreview = (props: IFilePreviewProps) => {
                     <h1>
                         <i className="fas fa-exclamation-circle" />
                     </h1>
-                    <h5>File format is not supported for a preview</h5>
-                    <h6>Please dowload the file to open</h6>
+                    <h5 style={{ marginBottom: 20 }}>
+                        File format is not supported for a preview
+                    </h5>
+                    <h6 style={{ marginBottom: 20 }}>
+                        Please dowload the file to open
+                    </h6>
                     <a download={filename} href={objectURL}>
-                        <button>
+                        <button className="downloadButtonClassName">
                             <i
                                 className="fas fa-download"
-                                style={{ marginRight: 10 }}
+                                style={{ marginRight: 20 }}
                             />
                             Download
                         </button>
