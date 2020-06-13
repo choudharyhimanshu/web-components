@@ -1,0 +1,40 @@
+{
+    "name": "@muchhadd/react-todo-list",
+    "version": "1.0.0",
+    "description": "A browser cached TODO list component",
+    "author": "Himanshu Choudhary <hc12298@gmail.com>",
+    "homepage": "https://github.com/choudharyhimanshu/web-components/tree/master/packages/todo-list-react-component#readme",
+    "license": "ISC",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/choudharyhimanshu/web-components.git"
+    },
+    "scripts": {
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "build": "npm-run-all ts:build scss:build",
+        "ts:build": "tsc -p tsconfig.json",
+        "scss:build": "sass --no-source-map src:dist/src --style compressed"
+    },
+    "bugs": {
+        "url": "https://github.com/choudharyhimanshu/web-components/issues"
+    },
+    "peerDependencies": {
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0"
+    },
+    "gitHead": "f2d15336d6820fe1f78534a22608b09644c190eb",
+    "dependencies": {
+        "uuid": "^8.1.0"
+    },
+    "devDependencies": {
+        "@types/uuid": "^8.0.0"
+    }
+}

@@ -630,3 +630,6 @@ dist/
 
 storybook-static
 .firebase
+
+# Keeping only scss files
+*.css

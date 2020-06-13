@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"WARN: no test specified\" && exit 0",
-    "start": "npm-run-all --parallel prettier:watch storybook:start",
+    "start": "npm-run-all --parallel prettier:watch sass:watch storybook:start",
     "build:check": "npm-run-all lint:check prettier:check",
     "build": "npm-run-all build:check lerna:build",
     "publish": "npm-run-all build lerna:publish",
@@ -22,7 +22,8 @@
     "lint:check": "tslint 'packages/**/*.{ts,tsx}'",
     "prettier:check": "prettier --check packages/**/*.{ts,tsx,json,css}",
     "prettier:write": "prettier --write packages/**/*.{ts,tsx,json,css}",
-    "prettier:watch": "onchange 'packages/**/*.{ts,tsx,json,css}' -- prettier --write {{changed}}"
+    "prettier:watch": "onchange 'packages/**/*.{ts,tsx,json,css}' -- prettier --write {{changed}}",
+    "sass:watch": "sass --no-source-map --watch packages"
   },
   "repository": {
     "type": "git",
@@ -55,6 +56,8 @@
     "prettier": "1.19.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "sass": "^1.26.8",
+    "sass-loader": "^8.0.2",
     "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.1.0",
