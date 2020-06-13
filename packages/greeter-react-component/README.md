@@ -11,7 +11,7 @@ npm i @muchhadd/greeter-react-component --save
 ## Usage
 
 ```jsx
-import {Greeter} from 'greeter-react-component';
+import {Greeter} from '@muchhadd/greeter-react-component';
 
 
 
