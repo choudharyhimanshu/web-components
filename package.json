@@ -20,9 +20,9 @@
     "lerna:build": "lerna run build",
     "lerna:publish": "lerna publish",
     "lint:check": "tslint 'packages/**/*.{ts,tsx}'",
-    "prettier:check": "prettier --check packages/**/*.{ts,tsx,json,css}",
-    "prettier:write": "prettier --write packages/**/*.{ts,tsx,json,css}",
-    "prettier:watch": "onchange 'packages/**/*.{ts,tsx,json,css}' -- prettier --write {{changed}}",
+    "prettier:check": "prettier --check packages/**/*.{ts,tsx,json,scss}",
+    "prettier:write": "prettier --write packages/**/*.{ts,tsx,json,scss}",
+    "prettier:watch": "onchange 'packages/**/*.{ts,tsx,json,css,scss}' -- prettier --write {{changed}}",
     "sass:watch": "sass --no-source-map --watch packages"
   },
   "repository": {

@@ -2,23 +2,22 @@ import * as React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { ITodoListItem } from './todo-list-item.model';
+import TodoListItem from './TodoListItem';
 import { TodoListService } from './todo-list.service';
 
 import './todo-list.css';
 
 const sortCompare = (itemA: ITodoListItem, itemB: ITodoListItem): number => {
-    if (itemA.isCompleted) return 1;
-    if (itemB.isCompleted) return -1;
     return itemB.createdOn.getTime() - itemA.createdOn.getTime();
 };
 
 export interface ITodoListProps {
-    key?: string;
+    listKey?: string;
 }
 
-const TodoList = ({ key }: ITodoListProps) => {
-    const todoListService = React.useMemo(() => new TodoListService(key), [
-        key
+const TodoList = ({ listKey }: ITodoListProps) => {
+    const todoListService = React.useMemo(() => new TodoListService(listKey), [
+        listKey
     ]);
 
     const [listItems, setListItems] = React.useState<ITodoListItem[]>(
@@ -69,45 +68,67 @@ const TodoList = ({ key }: ITodoListProps) => {
     }, [todoListService]);
 
     return (
-        <div>
-            <div>
-                <h3>Todo List</h3>
-                <p>(Stays in your browser cache)</p>
-            </div>
-            <div>
+        <div className="todo-list">
+            <h3 className="todo-list-heading">
+                <i className="fa fa-list-ul fa-sm margin-right-1x"></i>To Do
+            </h3>
+            <p className="todo-list-subheading">
+                (Stays in your browser cache)
+            </p>
+            <form
+                className="todo-list-input-group"
+                onSubmit={event => {
+                    event.preventDefault();
+                    handleAddItemAction();
+                }}
+            >
                 <input
                     type="text"
+                    className="todo-list-input-field"
                     value={newItemTitle}
                     onChange={event => setNewItemTitle(event.target.value)}
                 />
-                <span onClick={handleAddItemAction}>
+                <button
+                    className="todo-list-input-field-action"
+                    onClick={handleAddItemAction}
+                >
                     <i className="fa fa-plus" />
-                </span>
-            </div>
-            <div>
-                <ul>
-                    {listItems.sort(sortCompare).map(item => (
-                        <li key={item.id}>
-                            <input
-                                type="checkbox"
-                                checked={item.isCompleted}
-                                onChange={() =>
-                                    handleCompletionToggleAction(item)
-                                }
-                            />
-                            {item.title}
-                            <i
-                                className="fa fa-trash"
-                                onClick={() => handleDeleteItemAction(item)}
-                            />
-                        </li>
+                </button>
+            </form>
+            <ul className="todo-checklist">
+                {listItems
+                    .filter(item => !item.isCompleted)
+                    .sort(sortCompare)
+                    .map(item => (
+                        <TodoListItem
+                            key={item.id}
+                            item={item}
+                            onCompletionToggle={handleCompletionToggleAction}
+                            onDelete={handleDeleteItemAction}
+                        />
                     ))}
-                </ul>
-            </div>
+            </ul>
+            <ul className="todo-checklist">
+                {listItems
+                    .filter(item => item.isCompleted)
+                    .sort(sortCompare)
+                    .map(item => (
+                        <TodoListItem
+                            key={item.id}
+                            item={item}
+                            onCompletionToggle={handleCompletionToggleAction}
+                            onDelete={handleDeleteItemAction}
+                        />
+                    ))}
+            </ul>
             {listItems.length > 0 && (
-                <div>
-                    <button onClick={handleClearAllAction}>Clear all</button>
+                <div className="todo-list-actions">
+                    <button onClick={handleClearAllAction}>
+                        <i className="fa fa-trash margin-right-1x" />
+                        Clear all
+                    </button>
                     <button onClick={handleClearCompletedAction}>
+                        <i className="fa fa-eraser margin-right-1x" />
                         Remove completed
                     </button>
                 </div>
