@@ -1,6 +1,6 @@
 {
     "name": "@muchhadd/react-todo-list",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A browser cached TODO list component",
     "author": "Himanshu Choudhary <hc12298@gmail.com>",
     "homepage": "https://github.com/choudharyhimanshu/web-components/tree/master/packages/todo-list-react-component#readme",
